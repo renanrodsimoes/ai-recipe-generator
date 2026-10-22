@@ -6,7 +6,7 @@ export function request(ctx) {
 
   // Return the request configuration
   return {
-    resourcePath: `/model/anthropic.claude-sonnet-4-5-20250929-v1:0/invoke`,
+    resourcePath: `/model/us.anthropic.claude-sonnet-4-5-20250929-v1:0/invoke`,
     method: "POST",
     params: {
       headers: {
@@ -32,12 +32,9 @@ export function request(ctx) {
 }
 
 export function response(ctx) {
-  // Parse the response body
   const parsedBody = JSON.parse(ctx.result.body);
-  // Extract the text content from the response
   const res = {
     body: parsedBody.content[0].text,
   };
-  // Return the response
   return res;
 }
